@@ -7,6 +7,13 @@ on:
     paths:
       - 'packages/container/**'
 
+		# Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+		branches:
+      - master
+    paths:
+      - 'packages/container/**'
+
 defaults:
   run:
     working-directory: packages/container
