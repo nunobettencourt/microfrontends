@@ -23,7 +23,7 @@ jobs:
         run: npm install
 
       - name: Run npm build
-        run: npm build
+        run: npm run build
 
       - uses: shinyinc/action-aws-cli@v1.2
       - name: Sync AWS dist
