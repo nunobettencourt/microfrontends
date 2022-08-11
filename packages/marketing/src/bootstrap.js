@@ -1,22 +1,54 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { createMemoryHistory, createBrowserHistory } from 'history';
+
 import App from './App';
 
-// Mount function to start up the app
-const mount = (el) => {
-  ReactDOM.render(<App />, el);
+/**
+ * It creates a history object, listens for navigation events, and renders the app
+ * @param el - The DOM element to mount the app to.
+ * @param onNavigate - A callback to update the container's history
+ * @param defaultHistory - Optional parameter. If exists, Browser History is used
+ * @returns An object with a single property, onParentNavigate, which is a
+ * function.
+ */
+const mount = (el, { onNavigate, defaultHistory }) => {
+	const history = defaultHistory || createMemoryHistory();
+
+	if (onNavigate) {
+		history.listen(onNavigate);
+	}
+
+	ReactDOM.render(<App history={history} />, el);
+
+	/**
+	 * It takes a location object from the host application, if the pathname is
+	 * different from the current pathname, it pushes the new pathname to
+	 * the history object
+	 */
+	const onParentNavigate = ({ pathname: nextPathname }) => {
+		const { pathname } = history.location;
+
+		if (pathname !== nextPathname) {
+			history.push(nextPathname);
+		}
+	};
+
+	return {
+		onParentNavigate,
+	};
 };
 
-// If we are in development and in isolation,
-// call mount immediately
+// When in development and in isolation, call mount immediately
 if (process.env.NODE_ENV === 'development') {
-  const devRoot = document.querySelector('#_marketing-dev-root');
+	const devRoot = document.querySelector('#_marketing-dev-root');
 
-  if (devRoot) {
-    mount(devRoot);
-  }
+	const defaultHistory = createBrowserHistory();
+
+	if (devRoot) {
+		mount(devRoot, { defaultHistory });
+	}
 }
 
-// We are running through container
-// and we should export the mount function
+// When running through the container app, export the mount function
 export { mount };
