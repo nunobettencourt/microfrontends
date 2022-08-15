@@ -25,32 +25,36 @@ function Copyright() {
 	);
 }
 
-const useStyles = makeStyles((theme) => ({
-	'@global': {
-		a: {
-			textDecoration: 'none',
+const useStyles = makeStyles((theme) => {
+	console.log('Auth theme: ', theme.palette.type);
+	return {
+		'@global': {
+			a: {
+				textDecoration: 'none',
+			},
 		},
-	},
-	paper: {
-		marginTop: theme.spacing(8),
-		display: 'flex',
-		flexDirection: 'column',
-		alignItems: 'center',
-	},
-	avatar: {
-		margin: theme.spacing(1),
-		backgroundColor: theme.palette.secondary.main,
-	},
-	form: {
-		width: '100%',
-		marginTop: theme.spacing(1),
-	},
-	submit: {
-		margin: theme.spacing(3, 0, 2),
-	},
-}));
+		paper: {
+			marginTop: theme.spacing(8),
+			display: 'flex',
+			flexDirection: 'column',
+			alignItems: 'center',
+		},
+		avatar: {
+			margin: theme.spacing(1),
+			backgroundColor: theme.palette.secondary.main,
+		},
+		form: {
+			width: '100%',
+			marginTop: theme.spacing(1),
+		},
+		submit: {
+			margin: theme.spacing(3, 0, 2),
+		},
+	};
+});
 
 const SignIn = ({ onSignIn }) => {
+	const theme = useTheme();
 	const classes = useStyles();
 
 	return (
