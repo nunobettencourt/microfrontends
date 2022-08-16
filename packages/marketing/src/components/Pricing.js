@@ -26,38 +26,43 @@ function Copyright() {
 	);
 }
 
-const useStyles = makeStyles((theme) => {
-	console.log('pricing: ', theme.palette.type);
-	return {
-		'@global': {
-			ul: {
-				margin: 0,
-				padding: 0,
-				listStyle: 'none',
-			},
+const useStyles = makeStyles((theme) => ({
+	'@global': {
+		ul: {
+			margin: 0,
+			padding: 0,
+			listStyle: 'none',
 		},
-		toolbar: {
-			flexWrap: 'wrap',
+	},
+	toolbar: {
+		flexWrap: 'wrap',
+	},
+	toolbarTitle: {
+		flexGrow: 1,
+	},
+	link: {
+		margin: theme.spacing(1, 1.5),
+	},
+	heroContent: {
+		padding: theme.spacing(8, 0, 6),
+	},
+	cardPricing: {
+		display: 'flex',
+		justifyContent: 'center',
+		alignItems: 'baseline',
+		marginBottom: theme.spacing(2),
+	},
+	footer: {
+		borderTop: `1px solid ${theme.palette.divider}`,
+		marginTop: theme.spacing(8),
+		paddingTop: theme.spacing(3),
+		paddingBottom: theme.spacing(3),
+		[theme.breakpoints.up('sm')]: {
+			paddingTop: theme.spacing(6),
+			paddingBottom: theme.spacing(6),
 		},
-		toolbarTitle: {
-			flexGrow: 1,
-		},
-		link: {
-			margin: theme.spacing(1, 1.5),
-		},
-		heroContent: {
-			padding: theme.spacing(8, 0, 6),
-		},
-		cardHeader: {},
-		cardPricing: {
-			display: 'flex',
-			justifyContent: 'center',
-			alignItems: 'baseline',
-			marginBottom: theme.spacing(8),
-		},
-		footer: {},
-	};
-});
+	},
+}));
 
 const tiers = [
 	{
@@ -98,7 +103,6 @@ const tiers = [
 		buttonVariant: 'outlined',
 	},
 ];
-
 const footers = [
 	{
 		title: 'Company',
@@ -144,17 +148,11 @@ export default function Pricing() {
 					component="h1"
 					variant="h2"
 					align="center"
-					color="textPrimary"
 					gutterBottom
 				>
 					Pricing
 				</Typography>
-				<Typography
-					variant="h5"
-					align="center"
-					color="textSecondary"
-					component="p"
-				>
+				<Typography variant="h5" align="center" component="p">
 					Quickly build an effective pricing table for your potential
 					customers with this layout. It&apos;s built with default
 					Material-UI components with little customization.
@@ -185,7 +183,6 @@ export default function Pricing() {
 											<StarIcon />
 										) : null
 									}
-									className={classes.cardHeader}
 								/>
 								<CardContent>
 									<div className={classes.cardPricing}>
