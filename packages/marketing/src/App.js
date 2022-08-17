@@ -4,7 +4,6 @@ import {
 	StylesProvider,
 	createGenerateClassName,
 } from '@material-ui/core/styles';
-
 import { Container } from '@material-ui/core';
 
 import Landing from './components/Landing';
@@ -17,16 +16,16 @@ const generateClassName = createGenerateClassName({
 
 const App = ({ history }) => {
 	return (
-		<Container className="marketing-app">
-			<StylesProvider generateClassName={generateClassName}>
+		<StylesProvider generateClassName={generateClassName}>
+			<Container className="marketing-app">
 				<Router history={history}>
 					<Switch>
 						<Route exact path="/pricing" component={Pricing} />
 						<Route path="/" component={Landing} />
 					</Switch>
 				</Router>
-			</StylesProvider>
-		</Container>
+			</Container>
+		</StylesProvider>
 	);
 };
 
