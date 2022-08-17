@@ -1,0 +1,23 @@
+{
+	"name": "mfp",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"start": "concurrently \"cd auth && npm run start\" \"cd container && npm run start\" \"cd marketing && npm run start\" \"cd translations && npm run start\" \"cd sports && npm run start\""
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/nunobettencourt/microfrontends.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/nunobettencourt/microfrontends/issues"
+	},
+	"homepage": "https://github.com/nunobettencourt/microfrontends#readme",
+	"dependencies": {
+		"concurrently": "^7.3.0"
+	}
+}

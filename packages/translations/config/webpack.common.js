@@ -1,4 +1,8 @@
 module.exports = {
+	resolve: {
+		extensions: ['.jsx', '.js', '.json'],
+	},
+
 	module: {
 		rules: [
 			{

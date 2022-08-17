@@ -10,7 +10,8 @@ import ThemeToggler from './components/ThemeToggler';
 
 const MarketingLazy = lazy(() => import('./components/MarketingApp'));
 const AuthLazy = lazy(() => import('./components/AuthApp'));
-const DashboardLazy = lazy(() => import('./components/DashboardApp'));
+const SportsLazy = lazy(() => import('./components/SportsApp'));
+const TranslationsLazy = lazy(() => import('./components/TranslationsApp'));
 
 const history = createBrowserHistory();
 
@@ -19,7 +20,7 @@ const App = () => {
 
 	useEffect(() => {
 		if (isSignedIn) {
-			history.push('/dashboard');
+			history.push('/translations');
 		}
 	}, [isSignedIn]);
 
@@ -32,8 +33,8 @@ const App = () => {
 	};
 
 	return (
-		<Router history={history}>
-			<ThemeContextProvider>
+		<ThemeContextProvider>
+			<Router history={history}>
 				<Header isSignedIn={isSignedIn} onSignOut={onSignOut} />
 				<ThemeToggler />
 				<Suspense fallback={<Progress />}>
@@ -41,15 +42,15 @@ const App = () => {
 						<Route path="/auth">
 							<AuthLazy onSignIn={onSignIn} />
 						</Route>
-						<Route path="/dashboard">
+						<Route path="/translations">
 							{!isSignedIn && <Redirect to="/" />}
-							<DashboardLazy />
+							<TranslationsLazy />
 						</Route>
-						<Route path="/" component={MarketingLazy} />
+						<Route path="/" component={SportsLazy} />
 					</Switch>
 				</Suspense>
-			</ThemeContextProvider>
-		</Router>
+			</Router>
+		</ThemeContextProvider>
 	);
 };
 

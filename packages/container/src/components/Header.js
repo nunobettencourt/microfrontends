@@ -7,7 +7,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Link as RouterLink } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => {
-	console.log('container: ', theme.palette);
+	console.log('container: ', theme.palette.type);
 	return {
 		'@global': {
 			ul: {
@@ -19,9 +19,7 @@ const useStyles = makeStyles((theme) => {
 				textDecoration: 'none',
 			},
 		},
-		appBar: {
-			borderBottom: `1px solid ${theme.palette.divider}`,
-		},
+		appBar: {},
 		toolbar: {
 			flexWrap: 'wrap',
 			justifyContent: 'space-between',
@@ -70,7 +68,15 @@ const Header = ({ isSignedIn, onSignOut }) => {
 						component={RouterLink}
 						to="/"
 					>
-						App
+						Home
+					</Typography>
+					<Typography
+						variant="h6"
+						noWrap
+						component={RouterLink}
+						to="/translations"
+					>
+						Translations
 					</Typography>
 					<Button
 						variant="outlined"
