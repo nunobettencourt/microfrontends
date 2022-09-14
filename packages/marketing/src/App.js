@@ -20,7 +20,7 @@ const App = ({ history }) => {
 			<Container className="marketing-app">
 				<Router history={history}>
 					<Switch>
-						<Route exact path="/pricing" component={Pricing} />
+						<Route exact path="/dave" component={Pricing} />
 						<Route path="/" component={Landing} />
 					</Switch>
 				</Router>

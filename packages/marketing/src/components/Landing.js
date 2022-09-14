@@ -11,19 +11,6 @@ import Container from '@material-ui/core/Container';
 import MaterialLink from '@material-ui/core/Link';
 import { Link } from 'react-router-dom';
 
-function Copyright() {
-	return (
-		<Typography variant="body2" color="textSecondary" align="center">
-			{'Copyright © '}
-			<MaterialLink component={Link} to="/" color="inherit">
-				Your Website
-			</MaterialLink>{' '}
-			{new Date().getFullYear()}
-			{'.'}
-		</Typography>
-	);
-}
-
 const useStyles = makeStyles((theme) => ({
 	'@global': {
 		a: {
@@ -86,7 +73,7 @@ export default function Album() {
 						<div className={classes.heroButtons}>
 							<Grid container spacing={2} justifyContent="center">
 								<Grid item>
-									<Link to="/pricing">
+									<Link to="/dave">
 										<Button
 											variant="contained"
 											color="primary"

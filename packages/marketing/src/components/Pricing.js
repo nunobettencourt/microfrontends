@@ -10,21 +10,8 @@ import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import Box from '@material-ui/core/Box';
+import CardMedia from '@material-ui/core/CardMedia';
 import { Link as RouterLink } from 'react-router-dom';
-
-function Copyright() {
-	return (
-		<Typography variant="body2" color="textSecondary" align="center">
-			{'Copyright © '}
-			<Link color="inherit" href="https://material-ui.com/">
-				Your Website
-			</Link>{' '}
-			{new Date().getFullYear()}
-			{'.'}
-		</Typography>
-	);
-}
 
 const useStyles = makeStyles((theme) => ({
 	'@global': {
@@ -33,6 +20,9 @@ const useStyles = makeStyles((theme) => ({
 			padding: 0,
 			listStyle: 'none',
 		},
+	},
+	heroButtons: {
+		marginTop: theme.spacing(4),
 	},
 	toolbar: {
 		flexWrap: 'wrap',
@@ -52,6 +42,10 @@ const useStyles = makeStyles((theme) => ({
 		alignItems: 'baseline',
 		marginBottom: theme.spacing(2),
 	},
+	cardMedia: {
+		paddingTop: '56.25%', // 16:9
+		width: '100%',
+	},
 	footer: {
 		borderTop: `1px solid ${theme.palette.divider}`,
 		marginTop: theme.spacing(8),
@@ -67,7 +61,7 @@ const useStyles = makeStyles((theme) => ({
 const tiers = [
 	{
 		title: 'Free',
-		price: '0',
+		price: 'This',
 		description: [
 			'10 users included',
 			'2 GB of storage',
@@ -80,7 +74,7 @@ const tiers = [
 	{
 		title: 'Pro',
 		subheader: 'Most popular',
-		price: '15',
+		price: 'is',
 		description: [
 			'20 users included',
 			'10 GB of storage',
@@ -92,7 +86,7 @@ const tiers = [
 	},
 	{
 		title: 'Enterprise',
-		price: '30',
+		price: 'Dave',
 		description: [
 			'50 users included',
 			'30 GB of storage',
@@ -150,13 +144,22 @@ export default function Pricing() {
 					align="center"
 					gutterBottom
 				>
-					Pricing
+					Inner page
 				</Typography>
 				<Typography variant="h5" align="center" component="p">
-					Quickly build an effective pricing table for your potential
-					customers with this layout. It&apos;s built with default
-					Material-UI components with little customization.
+					I created this page just to show Dave's photo!
 				</Typography>
+				<div className={classes.heroButtons}>
+					<Grid container spacing={2} justifyContent="center">
+						<Grid item>
+							<RouterLink to="/">
+								<Button variant="contained" color="primary">
+									back to landing page
+								</Button>
+							</RouterLink>
+						</Grid>
+					</Grid>
+				</div>
 			</Container>
 			{/* End hero unit */}
 			<Container maxWidth="md" component="main">
@@ -183,6 +186,11 @@ export default function Pricing() {
 										) : null
 									}
 								/>
+								<CardMedia
+									className={classes.cardMedia}
+									image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToWPXYFP4wL5MQPaFwOrqVM4d3GjZRUHVBjA&usqp=CAU"
+									title="Dave"
+								/>
 								<CardContent>
 									<div className={classes.cardPricing}>
 										<Typography
@@ -190,13 +198,7 @@ export default function Pricing() {
 											variant="h3"
 											color="textPrimary"
 										>
-											${tier.price}
-										</Typography>
-										<Typography
-											variant="h6"
-											color="textSecondary"
-										>
-											/mo
+											{tier.price}
 										</Typography>
 									</div>
 									<ul>
