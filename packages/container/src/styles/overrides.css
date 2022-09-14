@@ -18,8 +18,17 @@
 
 /*******************************************/
 
+.jss1 {
+	margin-bottom: 16px !important;
+}
+
+.jss2 {
+	margin-top: 0 !important;
+	margin-bottom: 0 !important;
+}
+
 .jss3 {
-	margin: 0
+	margin: 0 !important
 }
 
 .jss4, .jss6 {

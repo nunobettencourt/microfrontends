@@ -50,6 +50,7 @@ const useStyles = makeStyles((theme) => ({
 	},
 	cardMedia: {
 		paddingTop: '56.25%', // 16:9
+		width: '100%',
 	},
 	cardContent: {
 		flexGrow: 1,
@@ -106,7 +107,7 @@ export default function Album() {
 								<Card className={classes.card}>
 									<CardMedia
 										className={classes.cardMedia}
-										image="https://source.unsplash.com/random"
+										image="https://images.squarespace-cdn.com/content/v1/574dd298f85082cf268f04b3/1464739926593-7KX9R6U0DOTAOY6JRUYH/Geneity-London-Gazetas-QJEL-05.jpg"
 										title="Image title"
 									/>
 									<CardContent
