@@ -15,6 +15,7 @@ const prodConfig = {
 			filename: 'remoteEntry.js',
 			exposes: {
 				'./SportsApp': './src/bootstrap',
+				'./SportsList': './src/components/SportsList',
 			},
 			shared: packageJson.dependencies,
 		}),
