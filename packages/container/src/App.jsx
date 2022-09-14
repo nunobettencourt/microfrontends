@@ -2,15 +2,16 @@ import React, { lazy, Suspense, useState, useEffect } from 'react';
 import { Router, Route, Switch, Redirect } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 
+import { CssBaseline, ThemeProvider } from '@material-ui/core';
+import theme from './styles/theme';
+import './styles/overrides.css';
+
 import Header from './components/Header';
 import Progress from './components/Progress';
 
-import { ThemeContextProvider } from './contexts/Theme/ThemeContext.js';
-import ThemeToggler from './components/ThemeToggler';
-
 const MarketingLazy = lazy(() => import('./components/MarketingApp'));
 const AuthLazy = lazy(() => import('./components/AuthApp'));
-const SportsLazy = lazy(() => import('./components/SportsApp'));
+const SportsListLazy = lazy(() => import('sports/SportsList'));
 const TranslationsLazy = lazy(() => import('./components/TranslationsApp'));
 
 const history = createBrowserHistory();
@@ -33,24 +34,27 @@ const App = () => {
 	};
 
 	return (
-		<ThemeContextProvider>
-			<Router history={history}>
-				<Header isSignedIn={isSignedIn} onSignOut={onSignOut} />
-				<ThemeToggler />
-				<Suspense fallback={<Progress />}>
-					<Switch>
-						<Route path="/auth">
-							<AuthLazy onSignIn={onSignIn} />
-						</Route>
-						<Route path="/translations">
-							{!isSignedIn && <Redirect to="/" />}
-							<TranslationsLazy />
-						</Route>
-						<Route path="/" component={SportsLazy} />
-					</Switch>
-				</Suspense>
-			</Router>
-		</ThemeContextProvider>
+		<React.StrictMode>
+			<ThemeProvider theme={theme}>
+				<CssBaseline />
+				<Router history={history}>
+					<Header isSignedIn={isSignedIn} onSignOut={onSignOut} />
+					<Suspense fallback={<Progress />}>
+						<Switch>
+							<Route path="/auth">
+								<AuthLazy onSignIn={onSignIn} />
+							</Route>
+							<Route path="/translations">
+								{!isSignedIn && <Redirect to="/" />}
+								<TranslationsLazy />
+							</Route>
+							<Route path="/sports" component={SportsListLazy} />
+							<Route path="/" component={MarketingLazy} />
+						</Switch>
+					</Suspense>
+				</Router>
+			</ThemeProvider>
+		</React.StrictMode>
 	);
 };
 

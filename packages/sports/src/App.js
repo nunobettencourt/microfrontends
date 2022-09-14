@@ -6,7 +6,7 @@ import {
 } from '@material-ui/core/styles';
 import { Container } from '@material-ui/core';
 
-import SportsList from './components/SportsList';
+import SportsContainer from './components/SportsContainer';
 
 // This will scope all CSS for this app
 const generateClassName = createGenerateClassName({
@@ -19,7 +19,7 @@ const App = ({ history }) => {
 			<Container className="sports-app">
 				<Router history={history}>
 					<Switch>
-						<Route path="/" component={SportsList} />
+						<Route path="/" component={SportsContainer} />
 					</Switch>
 				</Router>
 			</Container>

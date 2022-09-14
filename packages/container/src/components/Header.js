@@ -74,6 +74,14 @@ const Header = ({ isSignedIn, onSignOut }) => {
 						variant="h6"
 						noWrap
 						component={RouterLink}
+						to="/sports"
+					>
+						Sports
+					</Typography>
+					<Typography
+						variant="h6"
+						noWrap
+						component={RouterLink}
 						to="/translations"
 					>
 						Translations

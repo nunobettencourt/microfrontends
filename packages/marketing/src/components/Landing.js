@@ -60,7 +60,7 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const cards = [1, 2, 3];
 
 export default function Album() {
 	const classes = useStyles();
@@ -80,27 +80,17 @@ export default function Album() {
 							Home Page
 						</Typography>
 						<Typography variant="h5" align="center" paragraph>
-							JAMIE
+							Landing page for Genbet Admin Micro Frontends
 						</Typography>
 						<div className={classes.heroButtons}>
-							<Grid container spacing={2} justify="center">
+							<Grid container spacing={2} justifyContent="center">
 								<Grid item>
 									<Link to="/pricing">
 										<Button
 											variant="contained"
 											color="primary"
 										>
-											Pricing
-										</Button>
-									</Link>
-								</Grid>
-								<Grid item>
-									<Link to="/pricing">
-										<Button
-											variant="outlined"
-											color="primary"
-										>
-											Pricing
+											Inner page
 										</Button>
 									</Link>
 								</Grid>
@@ -149,22 +139,6 @@ export default function Album() {
 					</Grid>
 				</Container>
 			</main>
-			{/* Footer */}
-			<footer className={classes.footer}>
-				<Typography variant="h6" align="center" gutterBottom>
-					Footer
-				</Typography>
-				<Typography
-					variant="subtitle1"
-					align="center"
-					color="textSecondary"
-					component="p"
-				>
-					Something here to give the footer a purpose!
-				</Typography>
-				<Copyright />
-			</footer>
-			{/* End footer */}
 		</React.Fragment>
 	);
 }
