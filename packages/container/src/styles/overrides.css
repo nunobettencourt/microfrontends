@@ -18,6 +18,10 @@
 
 /*******************************************/
 
+.jss4, .jss6 {
+	padding: 0 !important;
+}
+
 .MuiPaper-root {
 	background-color: #222 !important;
 	color: #f0f0f0 !important;
