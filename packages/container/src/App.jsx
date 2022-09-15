@@ -11,7 +11,7 @@ import Progress from './components/Progress';
 
 const MarketingLazy = lazy(() => import('./components/MarketingApp'));
 const AuthLazy = lazy(() => import('./components/AuthApp'));
-const SportsListLazy = lazy(() => import('sports/SportsList'));
+const ScenariosListLazy = lazy(() => import('sports/ScenariosList'));
 const TranslationsLazy = lazy(() => import('./components/TranslationsApp'));
 
 const history = createBrowserHistory();
@@ -48,7 +48,10 @@ const App = () => {
 								{!isSignedIn && <Redirect to="/" />}
 								<TranslationsLazy />
 							</Route>
-							<Route path="/sports" component={SportsListLazy} />
+							<Route
+								path="/sports"
+								component={ScenariosListLazy}
+							/>
 							<Route path="/" component={MarketingLazy} />
 						</Switch>
 					</Suspense>

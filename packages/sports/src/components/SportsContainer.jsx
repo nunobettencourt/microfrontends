@@ -1,13 +1,13 @@
 import React from 'react';
-import SportsList from './SportsList';
+import ScenariosList from './ScenariosList';
 import SportsNames from './SportsNames';
 
 const SportsContainer = () => {
 	return (
 		<div>
-			<div>SportsContainer</div>
-			<SportsList />
 			<SportsNames />
+			<h1>This is an example of a container</h1>
+			<ScenariosList />
 		</div>
 	);
 };

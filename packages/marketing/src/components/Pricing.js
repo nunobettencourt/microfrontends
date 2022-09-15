@@ -63,10 +63,7 @@ const tiers = [
 		title: 'Free',
 		price: 'This',
 		description: [
-			'10 users included',
-			'2 GB of storage',
-			'Help center access',
-			'Email support',
+			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus erat velit, semper at interdum et, interdum quis arcu.',
 		],
 		buttonText: 'Sign up for free',
 		buttonVariant: 'outlined',
@@ -76,10 +73,8 @@ const tiers = [
 		subheader: 'Most popular',
 		price: 'is',
 		description: [
-			'20 users included',
-			'10 GB of storage',
-			'Help center access',
-			'Priority email support',
+			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus erat velit, semper at interdum et, interdum quis arcu.',
+			,
 		],
 		buttonText: 'Get started',
 		buttonVariant: 'contained',
@@ -201,18 +196,16 @@ export default function Pricing() {
 											{tier.price}
 										</Typography>
 									</div>
-									<ul>
-										{tier.description.map((line) => (
-											<Typography
-												component="li"
-												variant="subtitle1"
-												align="center"
-												key={line}
-											>
-												{line}
-											</Typography>
-										))}
-									</ul>
+
+									<Typography
+										variant="subtitle1"
+										align="center"
+									>
+										Lorem ipsum dolor sit amet, consectetur
+										adipiscing elit. Phasellus erat velit,
+										semper at interdum et, interdum quis
+										arcu.
+									</Typography>
 								</CardContent>
 								<CardActions>
 									<Button
@@ -221,7 +214,7 @@ export default function Pricing() {
 										fullWidth
 										color="primary"
 									>
-										{tier.buttonText}
+										Read More
 									</Button>
 								</CardActions>
 							</Card>

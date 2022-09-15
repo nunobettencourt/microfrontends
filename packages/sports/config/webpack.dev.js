@@ -21,7 +21,7 @@ const devConfig = {
 			filename: 'remoteEntry.js',
 			exposes: {
 				'./SportsApp': './src/bootstrap',
-				'./SportsList': './src/components/SportsList',
+				'./ScenariosList': './src/components/ScenariosList',
 			},
 			shared: packageJson.dependencies,
 		}),
