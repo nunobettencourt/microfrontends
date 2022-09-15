@@ -150,7 +150,7 @@ const ScenariosList = () => {
 				},
 			]}
 			sortColumn="name"
-			tableName="Scenarios"
+			tableName="Scenarios list"
 			total_results={20}
 		/>
 	);
