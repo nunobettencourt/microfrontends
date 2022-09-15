@@ -76,7 +76,7 @@ const Header = ({ isSignedIn, onSignOut }) => {
 						component={RouterLink}
 						to="/sports"
 					>
-						Sports
+						Scenarios
 					</Typography>
 					<Typography
 						variant="h6"
